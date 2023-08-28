@@ -38,7 +38,7 @@ resource "ncloud_subnet" "lb" {
   subnet         = cidrsubnet(ncloud_vpc.vpc.ipv4_cidr_block, 8, 2)
   zone           = "KR-2"
   network_acl_no = ncloud_vpc.vpc.default_network_acl_no
-  subnet_type    = "PUBLIC"
+  subnet_type    = "PRIVATE"
   name           = "lion-lb-subnet-${var.env}"
   usage_type     = "LOADB"
 }
