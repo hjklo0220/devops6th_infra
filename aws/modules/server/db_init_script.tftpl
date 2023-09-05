@@ -38,4 +38,10 @@ echo "POSTGRES_PORT=${POSTGRES_PORT}" >> $ENV_PATH
 mkdir /home/$USERNAME/.ssh
 echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDQRrz/mlOV4ZjHDkF/egmmMvWr6cP8/OzybCLmPykZ7Uoxos0phHsFX5fQUOKLM4XMz0F/B/XrZOyCvBjSQfH29rb0pouFYYKDeDI2o2F0K/BqgH8EcGnrn5ZFLjjN4RIp6oV37WIJ8bYDujMbmo2SP/Tx3bRb9MlwezK1yt0alOFvH6QTMb6q3WV4a45FJGXGNfQmu3rF0wjwsnpzEROlBzby23h9ICYH83m8ahzhiAclQP/IQxBHJW4tuF5wMjoROdGNJW/a0RDBPLZlF+E72HyJadG47YYV47uNb3YMU81piWspGlT0/g66NPAn8o4JUlRNNTPDQQgfy7MYC6I/jgQpgAQzUJSgY7timVOYEjXntjAkaxqy2LR0y3ub9NoLQk3Kxo/42AqUcR7LQIbtvjdLTELBvRmD+cT70qsPeM2r+lBlO0yLF/C739EPSE0busIK+ZrXXAqU3frvaoiFI7zkkrD/m7hVOG2+Ww7mkTJA3EW9872y8q1VkBIAn6M= junyoung_kim@jykim.local" >> /home/$USERNAME/.ssh/authorized_keys
 
+echo "docker run"
+docker run --name lion-db -d -p 5432:5432 \
+    --env-file $ENV_PATH \
+    -v postgres-data:/var/lib/postgresql/data \
+    postgres:13
+
 echo "done"
