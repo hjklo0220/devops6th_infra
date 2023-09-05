@@ -52,6 +52,8 @@ module "be_server" {
     POSTGRES_PORT = var.POSTGRES_PORT
     DJANGO_SETTINGS_MODULE = var.DJANGO_SETTINGS_MODULE
     DJANGO_SECRET_KEY = var.DJANGO_SECRET_KEY
+    NCP_ACCESS_KEY = var.NCP_ACCESS_KEY
+    NCP_SECRET_KEY = var.NCP_SECRET_KEY
   }
 
   server_image_product_code = data.ncloud_server_products.sm.server_image_product_code
